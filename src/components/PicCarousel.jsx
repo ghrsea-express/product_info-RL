@@ -1,6 +1,7 @@
 import React from 'react';
 import PicView from './PicView.jsx';
 import style from '../style.css';
+import { removePropertiesDeep } from '@babel/types';
 
 class PicCarousel extends React.Component {
     constructor(props) {
@@ -15,11 +16,21 @@ class PicCarousel extends React.Component {
     }
 
     handleImgChange (event){
+        // console.log("clicked")
+        // console.log(event.target.classList)
         this.setState({
             heroImg: event.target.currentSrc,
             highLight: event.target.id
         })
 
+    }
+
+    static getDerivedStateFromProps(props, state){
+        return {
+            ...state, 
+            imageArr: props.imgArr,
+            heroImg: props.imgArr[0]
+        }
     }
 
     handleHightLight (index) {
@@ -29,28 +40,30 @@ class PicCarousel extends React.Component {
     }
 
     render () {
-        console.log(this.props.imgArr)
-
         return(
             <div className={style.autoMargin}>
+                {/* {console.log(`picCarousel state: !!!!!!!!!! ${this.state.imageArr}`)} */}
+                {console.log(this.props.imgArr)}
                 <div className={style.heroImgHeight}>
                     <PicView picture={this.state.heroImg}/>
                 </div>
                 <div className={style.carousel}>
-                    {this.props.imgArr.map((url,index)=>(
-                        <img 
-                            src={url} 
-                            height="42" 
-                            width="42" 
-                            key={index}
-                            id={`thumbnail00${index}`}
-                            className={`imageThumbnails ${this.handleHightLight(index)} ${style.tmpad}`}
-                            onMouseOver={(event)=>{
-                                this.handleImgChange(event);
-                            }}
-                        />
+                    {this.state.imageArr.map((url,index)=>(
+                            <img 
+                                src={url} 
+                                height="42" 
+                                width="42" 
+                                key={index}
+                                id={`thumbnail00${index}`}
+                                className={`imageThumbnails ${this.handleHightLight(index)} ${style.tmpad}`}
+                                onMouseOver={(event)=>{
+                                    this.handleImgChange(event);
+                                }}
+                                />
                     ))}
                 </div>
+
+
             </div>
         )
     }

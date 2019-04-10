@@ -16,17 +16,17 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        this.fetchProduct(3)
+        this.fetchProduct(4)
     }
 
     fetchProduct(productId){
         axios.get(`/product?id=${productId}`)
         .then((res)=>{
-            //console.log(res);
+            // console.log(res.data[0])
+            return res.data[0]
+        }).then((productInfo)=>{
             this.setState({
-                targetProdut: res.data[0]
-            }, ()=>{
-                // console.log(exampleData[4])
+                targetProdut:productInfo
             })
         })
         .catch(()=>(console.log('404 not found')))
@@ -37,12 +37,12 @@ class App extends React.Component {
         const descriptArr = descriptStr.slice(0,descriptStr.length-1).split('.,')
         const longDescript = this.state.targetProdut.description2
         const productName = this.state.targetProdut.name
-        
+        const imgArrUrl = this.state.targetProdut.imageurl.split(', ')
         return (
             <div className={`${style.font} ${style.center}`}>
                 <h3 className={`${style.productName}`}>{productName}</h3>
                 <div className={`${style.container} ${style.productContainer}`}>
-                    <PicCarousel imgArr={this.state.targetProdut.imageurl.split(', ')} />
+                    <PicCarousel imgArr={imgArrUrl} />
                     <StDescipt descriptArr = {descriptArr}/>
                 </div>
                 <div>
