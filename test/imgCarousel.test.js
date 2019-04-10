@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import StDescipt from '../src/components/StDescript.jsx';
+import { identifier } from '@babel/types';
 
 describe('Examining the syntax of Jest tests', () => {
    
@@ -25,3 +26,5 @@ describe('StDescript component', () => {
         expect(wrapper.find('li').text()).toBe('point made');
     })
 })
+
+

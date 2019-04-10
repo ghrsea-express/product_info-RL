@@ -5,7 +5,7 @@ import StDescipt from './components/StDescript.jsx';
 import AboutProduct from './components/AboutProduct.jsx';
 import {exampleData} from '../example.js';
 import style from './style.css';
-import Axios from 'axios';
+import axios from 'axios';
 
 class App extends React.Component {
     constructor(props) {
@@ -15,17 +15,22 @@ class App extends React.Component {
         }
     }
 
-    // componentDidMount(){
-    //     fetchProduct()
-    // }
+    componentDidMount(){
+        this.fetchProduct(3)
+    }
 
-    // fetchProduct(productId){
-    //     Axios.get(`/product/${productId}`)
-    //     .then((res)=>{
-    //         this.setState(res)
-    //     })
-    //     .catch(()=>(console.log('404 not found')))
-    // }
+    fetchProduct(productId){
+        axios.get(`/product?id=${productId}`)
+        .then((res)=>{
+            //console.log(res);
+            this.setState({
+                targetProdut: res.data[0]
+            }, ()=>{
+                // console.log(exampleData[4])
+            })
+        })
+        .catch(()=>(console.log('404 not found')))
+    }
 
     render() {
         const descriptStr = this.state.targetProdut.description1

@@ -7,62 +7,50 @@ class PicCarousel extends React.Component {
         super(props);
         this.state = {
             imageArr: this.props.imgArr,
-            heroImg: this.props.imgArr[0]
+            heroImg: this.props.imgArr[0],
+            highLight: 'thumbnail000'
         };
         this.handleImgChange = this.handleImgChange.bind(this);
-        this.thumbnailHightLight = this.thumbnailHightLight.bind(this);
+        this.handleHightLight = this.handleHightLight.bind(this);
     }
 
     handleImgChange (event){
-        // console.log("clicked")
-        // console.log(event.target.classList)
         this.setState({
-            heroImg: event.target.currentSrc
+            heroImg: event.target.currentSrc,
+            highLight: event.target.id
         })
+
     }
 
-    thumbnailHightLight (event){
-        // console.log(event.target.classList);
-        // console.log('high light!')
-        // console.log(event.target.classList)
-        if(event.target.classList.contains(style["thumbnail-high-light"])){
-            event.target.classList.remove(style["thumbnail-high-light"])
-        }else{
-            event.target.classList.add(style["thumbnail-high-light"])
+    handleHightLight (index) {
+        if(this.state.highLight === `thumbnail00${index}`){
+            return style["thumbnail-high-light"];
         }
-
     }
-
-
-
 
     render () {
+        console.log(this.props.imgArr)
+
         return(
             <div className={style.autoMargin}>
-                {/* {console.log(this.props)} */}
                 <div className={style.heroImgHeight}>
                     <PicView picture={this.state.heroImg}/>
                 </div>
                 <div className={style.carousel}>
-                        {this.state.imageArr.map((url,index)=>(
-                                <img 
-                                    src={url} 
-                                    height="42" 
-                                    width="42" 
-                                    key={index}
-                                    className={`imageThumbnails ${style.thumbnail}} ${style.tmpad}`}
-                                    onMouseOver={(event)=>{
-                                        this.handleImgChange(event);
-                                        this.thumbnailHightLight(event);
-                                    }}
-                                    onMouseLeave={(event)=>{
-                                        console.log('leave')
-                                        this.thumbnailHightLight(event)
-                                    }}/>
-                        ))}
+                    {this.props.imgArr.map((url,index)=>(
+                        <img 
+                            src={url} 
+                            height="42" 
+                            width="42" 
+                            key={index}
+                            id={`thumbnail00${index}`}
+                            className={`imageThumbnails ${this.handleHightLight(index)} ${style.tmpad}`}
+                            onMouseOver={(event)=>{
+                                this.handleImgChange(event);
+                            }}
+                        />
+                    ))}
                 </div>
-
-
             </div>
         )
     }
