@@ -16,11 +16,11 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        this.fetchProduct(4)
+        this.fetchProduct(3)
     }
 
     fetchProduct(productId){
-        axios.get(`/product?id=${productId}`)
+        axios.get(`/${productId}`)
         .then((res)=>{
             // console.log(res.data[0])
             return res.data[0]
