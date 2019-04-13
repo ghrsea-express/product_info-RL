@@ -5,7 +5,7 @@ const exampleData = [
       price: "65.00",
       description1: "Possimus exercitationem itaque., Animi sit eum aliquam quas rerum omnis dolores officia id.,Sunt harum officiis repudiandae magni.,Maxime cumque provident dolore placeat quasi.",
       description2: "Reiciendis harum vel. Voluptas quod voluptas eius minima omnis voluptatum quia voluptas et. Occaecati debitis dolore iure nemo cumque. Qui est est rerum nesciunt. Illum sit similique rerum. Repudiandae ex a id mollitia amet reprehenderit rerum est esse.",
-      imageurl: "https://hivemodern.com/public_resources/eames-lounge-chair-ottoman-charles-and-ray-eames-herman-miller-1.jpg, https://hivemodern.com/public_resources/full/eames-lounge-chair-ottoman-charles-and-ray-eames-herman-miller-5.jpg, https://s7d2.scene7.com/is/image/DesignWithinReach/PD_5667_MAIN?$main$, https://hivemodern.com/public_resources/full/eames-lounge-chair-ottoman-charles-and-ray-eames-herman-miller-8.jpg, https://hivemodern.com/public_resources/full/eames-lounge-chair-ottoman-charles-and-ray-eames-herman-miller-7.jpg"
+      imageurl: "https://i.imgur.com/4AiXzf8.jpg, https://i.imgur.com/Ht2z4I7.jpg, https://i.imgur.com/4AiXzf8.jpg"
   },
   {
       id: 2,

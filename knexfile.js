@@ -5,10 +5,27 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host: "127.0.0.1",
+      host: "localhost",
       user: 'root',
-      password: '',
-      database: 'ghrseaexpress_product'
+      database: 'ghrseaexpress_product',
+      port: 3306
+    },
+    migrations: {
+      directory: __dirname+'/db/migrations'
+    },
+    seeds: {
+      directory: __dirname+'/db/seeds'
+    }
+  },
+
+  production: {
+    client: 'mysql',
+    connection: {
+      host: "database",
+      user: 'root',
+      password: 'kqed',
+      database: 'ghrseaexpress_product',
+      port: 3306
     },
     migrations: {
       directory: __dirname+'/db/migrations'

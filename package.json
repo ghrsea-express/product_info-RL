@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack -d --watch",
-    "start": "nodemon ./server/index.js",
+    "start": "node ./server/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
-    "seedTables" : "knex migrate:latest",
+    "seedTables": "knex migrate:latest",
     "seedData": "knex seed:run"
   },
   "keywords": [],
@@ -31,6 +31,7 @@
     "identity-obj-proxy": "^3.0.0",
     "knex": "^0.16.3",
     "mysql": "^2.16.0",
+    "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^2.1.8",

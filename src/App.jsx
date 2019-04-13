@@ -2,7 +2,6 @@ import React from 'react';
 
 import PicCarousel from './components/PicCarousel.jsx';
 import StDescipt from './components/StDescript.jsx';
-import AboutProduct from './components/AboutProduct.jsx';
 import {exampleData} from '../example.js';
 import style from './style.css';
 import axios from 'axios';
@@ -16,13 +15,12 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        this.fetchProduct(3)
+        this.fetchProduct(window.location.pathname.slice(1) || 1)
     }
 
     fetchProduct(productId){
-        axios.get(`/${productId}`)
+        axios.get(`/image/${productId}`)
         .then((res)=>{
-            // console.log(res.data[0])
             return res.data[0]
         }).then((productInfo)=>{
             this.setState({
@@ -35,7 +33,6 @@ class App extends React.Component {
     render() {
         const descriptStr = this.state.targetProdut.description1
         const descriptArr = descriptStr.slice(0,descriptStr.length-1).split('.,')
-        const longDescript = this.state.targetProdut.description2
         const productName = this.state.targetProdut.name
         const imgArrUrl = this.state.targetProdut.imageurl.split(', ')
         return (
@@ -44,9 +41,6 @@ class App extends React.Component {
                 <div className={`${style.container} ${style.productContainer}`}>
                     <PicCarousel imgArr={imgArrUrl} />
                     <StDescipt descriptArr = {descriptArr}/>
-                </div>
-                <div>
-                    <AboutProduct paragraph={longDescript}/>
                 </div>
             </div>
         )

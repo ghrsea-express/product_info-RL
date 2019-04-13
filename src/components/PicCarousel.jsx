@@ -9,15 +9,13 @@ class PicCarousel extends React.Component {
         this.state = {
             imageArr: this.props.imgArr,
             heroImg: this.props.imgArr[0],
-            highLight: 'thumbnail000'
+            highLight: '0'
         };
         this.handleImgChange = this.handleImgChange.bind(this);
         this.handleHightLight = this.handleHightLight.bind(this);
     }
 
     handleImgChange (event){
-        // console.log("clicked")
-        // console.log(event.target.classList)
         this.setState({
             heroImg: event.target.currentSrc,
             highLight: event.target.id
@@ -34,7 +32,7 @@ class PicCarousel extends React.Component {
     }
 
     handleHightLight (index) {
-        if(this.state.highLight === `thumbnail00${index}`){
+        if(this.state.highLight === `${index}`){
             return style["thumbnail-high-light"];
         }
     }
@@ -42,10 +40,8 @@ class PicCarousel extends React.Component {
     render () {
         return(
             <div className={style.autoMargin}>
-                {/* {console.log(`picCarousel state: !!!!!!!!!! ${this.state.imageArr}`)} */}
-                {console.log(this.props.imgArr)}
                 <div className={style.heroImgHeight}>
-                    <PicView picture={this.state.heroImg}/>
+                    <PicView picture={this.props.imgArr[this.state.highLight]}/>
                 </div>
                 <div className={style.carousel}>
                     {this.state.imageArr.map((url,index)=>(
@@ -54,7 +50,7 @@ class PicCarousel extends React.Component {
                                 height="42" 
                                 width="42" 
                                 key={index}
-                                id={`thumbnail00${index}`}
+                                id={`${index}`}
                                 className={`imageThumbnails ${this.handleHightLight(index)} ${style.tmpad}`}
                                 onMouseOver={(event)=>{
                                     this.handleImgChange(event);
