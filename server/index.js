@@ -17,7 +17,7 @@ app.get('/image/:id',(req, res)=>{
 })
 
 app.get('*', (req, res)=> {
-    res.sendfile(path.join(__dirname,'/../dist/index.html'))
+    res.sendFile(path.join(__dirname,'/../dist/index.html'))
 })
 
 app.listen(port, ()=>{ console.log('...listening on port ' + port)});

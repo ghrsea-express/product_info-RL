@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack -d --watch",
-    "start": "node ./server/index.js",
+    "webpack-dev": "webpack -d --watch",
+    "webpack-pro": "webpack --mode=production",
+    "start": "nodemon ./server/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
@@ -46,6 +47,7 @@
     "jest-css-modules": "^2.0.0",
     "jest-webpack": "^0.5.1",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack-cli": "^3.3.0"
   }
 }

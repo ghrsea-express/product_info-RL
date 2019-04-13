@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PicCarousel from './components/PicCarousel.jsx';
 import StDescipt from './components/StDescript.jsx';
 import {exampleData} from '../example.js';
@@ -38,7 +37,7 @@ class App extends React.Component {
         return (
             <div className={`${style.font} ${style.center}`}>
                 <h3 className={`${style.productName}`}>{productName}</h3>
-                <div className={`${style.container} ${style.productContainer}`}>
+                <div className={`${style.parent} ${style.productContainer}`}>
                     <PicCarousel imgArr={imgArrUrl} />
                     <StDescipt descriptArr = {descriptArr}/>
                 </div>

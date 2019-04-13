@@ -8,25 +8,8 @@
     font-weight: 400;
 }
 
-.item-a {
-    grid-area: imgView;
-}
-
-.item-b {
-    grid-area: stDescript;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "imgView" "stDescript"
-}
-
 .center {
     margin: auto;
-    width: 80%;
 }
 
 .heroImg {
@@ -40,11 +23,11 @@
     justify-content: center;
     height: 500px;
     width: 500px;
+    margin:auto;
 }
 
 .parent {
     display: flex;
-    flex-wrap: wrap;
     align-content: stretch;
     height: 100%;
     overflow: hidden;
@@ -53,7 +36,7 @@
     width: 500px
 }
 .child2 {
-    width: 330px;
+    width: 200px;
 }
 
 .carousel {
