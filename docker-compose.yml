@@ -5,7 +5,7 @@ services:
     environment:
      - NODE_ENV=production
      - PORT=3003
-    image: richard009/hackreactor2019
+    image: richard009/hackreactor2019:productinfo
     depends_on:
      - 'database'
     ports:
