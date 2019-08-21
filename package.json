@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack -d --watch",
-    "server": "nodemon ./server/index.js",
+    "start": "nodemon ./server/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors"
+    "test:coverage": "jest --coverage --colors",
+    "seedTables" : "knex migrate:latest",
+    "seedData": "knex seed:run"
   },
   "keywords": [],
   "author": "",
