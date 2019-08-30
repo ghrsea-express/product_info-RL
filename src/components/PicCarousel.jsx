@@ -27,7 +27,7 @@ class PicCarousel extends React.Component {
         return {
             ...state, 
             imageArr: props.imgArr,
-            heroImg: props.imgArr[0]
+            heroImg: props.imgArr[0],
         }
     }
 
